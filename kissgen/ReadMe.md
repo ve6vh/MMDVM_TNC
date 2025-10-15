@@ -18,10 +18,10 @@ Where:
 * -k is the kiss message type
 * -t is a test mode which generates a new message type (07) for test purposes.
 
-The message types are:-
-* 0. Sends a canned data message "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ**Test Message**".
-* 1-6. Sends the associate kiss messages as defined in the protocol. 1-5 required a single argument, 6 requires 2.
-* 7. Sends a single character, useful for serial debugging.
+The kiss message types are:-
+* 0: Sends a canned data message "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ**Test Message**".
+* 1 thru 6: Sends the associate kiss messages as defined in the protocol. 1-5 required a single argument, 6 requires 2.
+* 7: Sends a single character, useful for serial debugging.
 
 The -D switch is a debug mode that dumps the kiss message to stdout in hex format for debugging.
 
