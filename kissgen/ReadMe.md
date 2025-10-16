@@ -26,4 +26,4 @@ The kiss message types are:-
 The -D switch is a debug mode that dumps the kiss message to stdout in hex format for debugging.
 
 The test modes are not defined in the protocol, and are implementation dependent.
-In this verision of MMDVM_TNC, a continuous test message is sent out consisting of the symbols -3, +1, -1, +3.
+In this verision of MMDVM_TNC, a continuous test message is sent out consisting of the symbols +3, -1, +1, -3.
