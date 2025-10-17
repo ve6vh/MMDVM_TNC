@@ -21,7 +21,6 @@ Where:
 The kiss message types (-k n) are:-
 * 0: Sends a canned data message "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ**Test Message**".
 * 1 thru 6: Sends the associate kiss messages as defined in the protocol. 1-5 required a single argument, 6 requires 2.
-* 7: test modes 0-4:
 
 The test message types (-t n) are:
 * 0: test mode off
