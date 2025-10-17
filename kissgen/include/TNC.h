@@ -42,8 +42,7 @@
 #define ID_SETDUPLEX						5
 #define ID_TNCMESSAGE_SETHARDWARETYPE		6
 #define ID_TNCMESSAGE_SENDSINGLECHARACTER	7
-#define ID_TXTESTTONE_ON					8
-#define ID_TXTESTTONE_OFF					9
+#define ID_TXTESTTONE						8
 
 #define	MAX_DATA_FRAME						400					// max data frame size
 
@@ -62,10 +61,6 @@
 #define	HALF_DUPLEX		0				// half duplex
 #define	FULL_DUPLEX		1				// full duplex
 
-// test tone
-#define	TEST_TONE_OFF	0				// tone off
-#define TEST_TONE_ON	1				// test tone on
-
 // TNC parameters
 typedef struct tnc_params_t {
 	uint8_t		Address;				// Kiss Address
@@ -76,6 +71,7 @@ typedef struct tnc_params_t {
 	uint8_t		Persistence;			// CSMA Persistence
 	uint8_t		SlotTime;				// CSMA Slot time
 	uint8_t		Duplex;					// Duplex
+	uint8_t		TestNum;				// test number
 } TNC_PARAMS;
 
 // links in
