@@ -18,11 +18,12 @@ Where:
 * -k is the kiss message type
 * -t is a test mode which generates a new message type (07) for test purposes.
 
-The kiss message types are:-
+The kiss message types (-k n) are:-
 * 0: Sends a canned data message "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ**Test Message**".
 * 1 thru 6: Sends the associate kiss messages as defined in the protocol. 1-5 required a single argument, 6 requires 2.
 * 7: test modes 0-4:
 
+The test message types (-t n) are:
 * 0: test mode off
 * 1: symbols +3, -1, +1, -3
 * 2: symbols +3, -3
