@@ -76,8 +76,7 @@ void sendTNCDataMessage(int wmId)
 
 	// test modes
 	case ID_TNCMESSAGE_SENDSINGLECHARACTER:
-	case ID_TXTESTTONE_ON:
-	case ID_TXTESTTONE_OFF:
+	case ID_TXTESTTONE:
 		sendTestMode(wmId);
 		return;
 	}
@@ -173,11 +172,10 @@ void sendTestMode(int msgType)
 		*tBuf++ = 'A';
 		break;
 
-	case ID_TXTESTTONE_ON:
-	case ID_TXTESTTONE_OFF:
+	case ID_TXTESTTONE:
 		*tBuf++ = FEND;
 		*tBuf++ = KISS_CMD(TncParams.Address, SET_TEST_MODE);
-		*tBuf++ = msgType == ID_TXTESTTONE_OFF ? TEST_TONE_OFF : TEST_TONE_ON;
+		*tBuf++ = TncParams.TestNum;
 		*tBuf++ = FEND;
 	}
 

@@ -46,7 +46,7 @@ int main(int argc, char *argv[]) {
 	int c;
 	TNC_PARAMS *tncParams = getTNCParams();
 	int kissMsg = UNDEFINED;
-	int testTone = UNDEFINED;
+	int testNum = UNDEFINED;
 
 	while ((c = getopt(argc, argv, "b:m:Dd:a:k:t:")) != -1) {
 		switch(c) {
@@ -96,12 +96,12 @@ int main(int argc, char *argv[]) {
 
 			// test mode
 			case 't':
-				sscanf(optarg,"%d", &testTone);
+				sscanf(optarg,"%d", &testNum);
 				break;
 		}
 	}
 
-	if((testTone == UNDEFINED) && (kissMsg == UNDEFINED))	{
+	if((testNum == UNDEFINED) && (kissMsg == UNDEFINED))	{
 		fprintf(stderr, "No command specified\n");
 		show_help(argv[0]);
 		return(-1);
@@ -130,8 +130,9 @@ int main(int argc, char *argv[]) {
 	}
 
 	// do test tone first
-	if(testTone != UNDEFINED)	{
-		sendTNCDataMessage(testTone ? ID_TXTESTTONE_ON : ID_TXTESTTONE_OFF);
+	if(testNum != UNDEFINED)	{
+		tncParams->TestNum = testNum;
+		sendTNCDataMessage(ID_TXTESTTONE);
 	} else {
 		if(kissMsg != UNDEFINED)	{
 			switch(kissMsg)	{
@@ -220,6 +221,7 @@ void show_help(char *name)
 		"	-a kiss address	(default 0)\n"
 		"	-m mode		Serial port mode (default 8e1)\n"
 		"	-d device 	tty device\n"
+		"   -D debug mode\n"
 		"	-k Kiss message type: \n"
 		"	   0			Send data message\n"
 		"	   1	<n>		Set Tx Delay\n"
@@ -228,8 +230,12 @@ void show_help(char *name)
 		"	   4	<n>		Set TX Tail\n"
 		"	   5	<n>		Set Duplex\n"
 		"	   6	<r> <t>	Set rx and tx gain\n"
-		"	-t 1/0	Set test tone on/off\n"
-		"   -D debug mode\n"
+		"	-t Set test mode\n"
+		"	   0   Test mode Off\n"
+		"      1   Alternating Symbols +3, -1, +1, -3\n"
+		"      2   Fixed pattern +3/-3\n"
+		"	   3   Fixed pattern +1/-1\n"
+		"	   4   Repeating sync pattern\n"
 		"\n"
 		"Examples:\n"
 		"	Send a data message:\n"
