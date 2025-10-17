@@ -21,9 +21,13 @@ Where:
 The kiss message types are:-
 * 0: Sends a canned data message "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ**Test Message**".
 * 1 thru 6: Sends the associate kiss messages as defined in the protocol. 1-5 required a single argument, 6 requires 2.
-* 7: Sends a single character, useful for serial debugging.
+* 7: test modes 0-4:
+
+* 0: test mode off
+* 1: symbols +3, -1, +1, -3
+* 2: symbols +3, -3
+* 3: symbols +1, -1
+* 4: repetitive SYNC pattern
 
 The -D switch is a debug mode that dumps the kiss message to stdout in hex format for debugging.
 
-The test modes are not defined in the protocol, and are implementation dependent.
-In this verision of MMDVM_TNC, a continuous test message is sent out consisting of the symbols +3, -1, +1, -3.
